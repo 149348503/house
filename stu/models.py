@@ -9,6 +9,16 @@ from __future__ import unicode_literals
 
 from django.db import models
 
+class UserRole(models.Model):
+    role_id = models.AutoField(primary_key=True)
+    role_name = models.CharField(max_length=50, blank=True, null=True)
+    role_power = models.IntegerField(blank=True, null=True)
+    is_used = models.CharField(max_length=10, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'user_role'
+
 class DepartmentInfo(models.Model):
     department_id = models.AutoField(primary_key=True)
     department_name = models.CharField(max_length=50, blank=True, null=True)
@@ -52,7 +62,7 @@ class CustomerSource(models.Model):
 class UserInfo(models.Model):
     user_id = models.AutoField(primary_key=True)
     department = models.ForeignKey(DepartmentInfo, models.DO_NOTHING, blank=True, null=True)
-    role = models.ForeignKey('UserRole', models.DO_NOTHING, blank=True, null=True)
+    role = models.ForeignKey(UserRole, models.DO_NOTHING, blank=True, null=True)
     user_name = models.CharField(max_length=50, blank=True, null=True)
     user_sex = models.CharField(max_length=10, blank=True, null=True)
     user_mobile = models.CharField(max_length=20, blank=True, null=True)
@@ -218,12 +228,4 @@ class NoticeInfo(models.Model):
 
 
 
-class UserRole(models.Model):
-    role_id = models.AutoField(primary_key=True)
-    role_name = models.CharField(max_length=50, blank=True, null=True)
-    role_power = models.IntegerField(blank=True, null=True)
-    is_used = models.CharField(max_length=10, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'user_role'

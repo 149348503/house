@@ -8,6 +8,11 @@
     <file url="file://$PROJECT_DIR$/templates/customer_distribute_list.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/templates/customer_edit.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/templates/customer_list1.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/templates/emp_add.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/templates/emp_detail.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/templates/emp_edit.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/templates/emp_list.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/templates/house_list.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/templates/login.html" charset="GBK" />
   </component>
 </project>

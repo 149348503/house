@@ -1,0 +1,316 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+        <meta charset="UTF-8">
+		<title>修改员工信息</title>
+
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+		<meta http-equiv="description" content="This is my page">
+		<LINK href="http://localhost:8080/crm/resource/css/admin.css" type=text/css
+			rel=stylesheet>
+			<script type="text/javascript"
+			src="/static/CheckForm.js"></script>
+		<script type="text/javascript"
+			src="/static/My97DatePicker/WdatePicker.js"></script>
+			<script language="JavaScript" type="text/javascript" src="/static/FormValid.js"></script>
+
+	</head>
+
+	<body>
+		<form action="../../stu1/emp_edit/" method="post" name="form2" onsubmit="return validator(this)"
+>
+			
+			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
+				align=center border=0>
+				<tr class=editHeaderTr>
+					<td class=editHeaderTd colSpan=7>
+						请修改用户的详细信息
+						<input type="hidden" name="user_id" value="{{ un_obj.user_id }}"
+							readonly="readonly">
+					</td>
+				</tr>
+
+				<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							姓名：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						<input type="text" style="width: 145px" name="user_name" value="{{ un_obj.user_name }}"
+							readonly="readonly">
+						&nbsp;
+					</td>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							年龄：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						<input type="text"  style="width: 145px" name="user_age" maxlength="2"  valid="required|isNumber"  errmsg="员工年龄不能为空!|请输入正确的年龄!" value="{{ un_obj.user_age }}">
+						&nbsp;
+					</td>
+				</tr>
+
+				<tr>
+					<td bgcolor="#FFFDF0" style="height: 21px">
+						<div align="center">
+							性别：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF" style="height: 21px">
+						<input type="radio" name="user_sex"
+							 checked="checked"
+							 value="男" />
+						男
+						<input type="radio" name="user_sex"
+							 value="女" />
+						女
+						<br />
+					</td>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							民族：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						<input type="text"  style="width: 145px" name="user_nation"
+							value="{{ un_obj.user_nation }}">
+						&nbsp;
+					</td>
+				</tr>
+
+				<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							学历：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						<select name="user_diploma" style="width: 145px">
+							<option >
+								初中
+							</option>
+							>
+							<option>
+								高中
+							</option>
+							<option 
+								selected="selected" >
+								本科
+							</option>
+							<option >
+								博士
+							</option>
+							<option >
+								硕士
+							</option>
+						</select>
+						&nbsp;
+					</td>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							婚姻：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						<select name="is_married" style="width: 145px">
+							<option 
+								selected="selected" >
+								已婚
+							</option>
+							<option >
+								未婚
+							</option>
+							<option >
+								离异
+							</option>
+						</select>
+						&nbsp;
+					</td>
+				</tr>
+
+
+				<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							部门：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						<select name="department" style="width: 145px">
+							
+							<option value="1"
+								
+								selected="selected" >财务部</option>
+							
+							<option value="3"
+								>销售部</option>
+							
+						</select>
+						&nbsp;
+					</td>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							角色：
+						</div>
+					</td>
+
+					<td colspan="3" bgcolor="#FFFFFF">
+						<select name="roleId"  disabled="disabled" style="width: 145px">
+
+							
+							<option value="1"
+								
+								selected="selected" >管理员</option>
+							
+							<option value="2"
+								>员工</option>
+							
+							<option value="3"
+								>老板</option>
+							
+						</select>
+					</td>
+
+	
+				<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							座机：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						<input type="text"  style="width: 145px"     valid="isPhone"   errmsg="请输入正确的座机号码!" name="user_tel" value="{{ un_obj.user_tel }}">
+						&nbsp;
+					</td>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							爱好：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						<input type="text"  style="width: 145px"  maxlength="50"  name="user_intest"
+							value="{{ un_obj.user_intest }}">
+						&nbsp;
+					</td>
+				</tr>
+			
+				<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							工资卡号：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						<input type="text" style="width: 145px"  valid="isNumber"   errmsg="请输入正确的工资卡号!"  maxlength="20"   name="user_bankcard"
+							value="{{ un_obj.user_bankcard }}">
+						&nbsp;
+					</td>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							手机：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						<input type="text"  style="width: 145px" valid="regexp"  regexp="^1[3|4|5|8][0-9]\d{8}$"   errmsg="请输入正确的手机号码!" name="user_mobile"
+							value="{{ un_obj.user_mobile }}">
+						&nbsp;
+					</td>
+
+				</tr>
+
+				<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							身份证：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						<input type="text"  style="width: 145px"  valid="isIdCard"   errmsg="请输入正确的身份证号码!" name="user_idnum" value="{{ un_obj.user_idnum }}">
+						&nbsp;
+					</td>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							添加时间：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						<input type="text"  style="width: 145px" name="userAddtime"
+							disabled="disabled" value="{{ un_obj.user_addtime }}">
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							添加人：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						<input type="text"  style="width: 145px"  maxlength="10" name="userAddman"
+							disabled="disabled" value="{{ un_obj.user_addman }}">
+						&nbsp;
+					</td>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							修改人：
+						</div>
+						<input type="hidden"   value="2017-06-15 11:33:59" name="user_changetime">
+					
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						<input type="text" name="user_changeman"
+							style="width: 145px"    maxlength="20" value="未修改">
+						&nbsp;
+					</td>
+				</tr>
+
+				<tr>
+
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							E_mail：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						<input type="text" style="width: 145px"  maxlength="50" name="user_email" value="{{ un_obj.user_email }}">
+						&nbsp;
+					</td>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							地址：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						<input type="text" style="width: 145px"  maxlength="50"  name="user_address"
+							value="{{ un_obj.user_address }}">
+						&nbsp;
+					</td>
+				</tr>
+
+			</table>
+			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
+				align=center border=0>
+				<tr bgcolor="#ECF3FD">
+					<td width="36%"></td>
+					<td width="17%"><input type="submit" value="提交"></td>
+					<td width="4%"><input type="button" name="button"  onClick="history.back() "  value="返回"></td>
+					<td width="43%"></td>
+				</tr>
+			</table>
+
+		</form>
+
+	</body>
+</html>

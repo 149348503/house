@@ -71,7 +71,7 @@ function search() {
         customer_info = JSON.parse(result.customer_info);
         var str1 = "";
         $("#countnum").html("");
-        $("#countnum").html("&nbsp;&nbsp;共有<"+customer_info.length+">条记录，当前第 1/1页");
+        $("#countnum").html("&nbsp;&nbsp;共有<"+customer_info.length+">条记录");
         $("#tbodyinfo").html("");
         for(var i=0;i<customer_info.length;i++){
             str1 = "<tr>"+
