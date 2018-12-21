@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'stu'
+    'stu',
+    'stu1',
+    'stu2',
 ]
 
 MIDDLEWARE = [
@@ -78,9 +80,9 @@ WSGI_APPLICATION = 'house.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': '181217_db',
+        'NAME': 'crm',
         'USER': 'root',
-        'PASSWORD': '194413',
+        'PASSWORD': '130429',
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }
@@ -126,8 +128,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'static/images'),
-    os.path.join(BASE_DIR,'static/css'),
-    os.path.join(BASE_DIR,'static/js'),
+    os.path.join(BASE_DIR,'static','images'),
+    os.path.join(BASE_DIR,'static','css'),
+    os.path.join(BASE_DIR,'static','js'),
 
 ]

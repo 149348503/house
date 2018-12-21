@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <title>浏览器对象</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=gb123"/>
+     <style type="text/css">
+         body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color: #016aa9;
+	overflow:hidden;
+}
+
+     </style>
+ </head>
+ <body>
+ <div id="div" style="text-align: center;margin: 0px;margin-top:200px ">登录成功,欢迎使用房地产客户关系管理系统
+ <p><b id="second" style="color: red">5</b>秒后跳转到主页面</p>
+</div>
+
+<script type="text/javascript">
+
+  var sec = document.getElementById("second");
+  var i = 5;
+  var timer = setInterval(function(){
+    i--;
+    sec.innerHTML = i;
+    if(i==1){
+      window.location.href = "../main/";
+    }
+  },1000);
+
+{# function goBack(){ #}
+{#  window.history.go(-1);#}
+{# } #}
+ </script>
+ </body>
+</html>
