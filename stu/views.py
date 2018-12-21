@@ -22,6 +22,9 @@ def index_left(request):
     return render(request,'left.html')
 
 
+def index_left1(request):
+    return render(request,'left1.html')
+
 def index_center(request):
     return render(request,'center.html')
 
@@ -190,14 +193,12 @@ class Index_login(View):
         return render(request, 'login.html')
     def post(self, request, *args, **kwargs):
         a = request.POST.dict()
-        print(a)
-        # 获取分配员工对象实例
-        # user_obj = UserInfo.objects.get(user_id=a['user'])
-        # a['user'] = user_obj
-        # CustomerInfo.objects.filter(customer_name=a['customer_name']).update(**a)
-        # 判断用户是否存在
         if UserInfo.objects.filter(user_num=a['user_num'],user_pw=a['user_pw']):
-            return render(request,'main.html',{'user_num':a['user_num'],'user_pw':a['user_pw']})
+            user_obj = UserInfo.objects.get(user_num=a['user_num'],user_pw=a['user_pw'])
+            if user_obj.role.role_name=='管理员'or user_obj.role.role_name=='老板':
+                return render(request,'main.html',{'user_num':a['user_num'],'user_pw':a['user_pw']})
+            else:
+                return render(request, 'main1.html', {'user_num': a['user_num'], 'user_pw': a['user_pw']})
         else:
             return render(request,'error.html')
 
@@ -211,3 +212,5 @@ class Index_top(View):
 
 def index_loginemail(request):
     return render(request,'loginemail.html')
+
+

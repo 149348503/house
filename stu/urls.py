@@ -5,6 +5,7 @@ urlpatterns = [
     url(r'^main/$', views.index_main),
     url(r'^top/$', views.Index_top.as_view()),
     url(r'^left/$', views.index_left),
+    url(r'^left1/$', views.index_left1),
     url(r'^center/$', views.index_center),
     url(r'^customer_list1/$', views.Index_customer_list1.as_view()),
     url(r'^customer_add/$', views.Index_customer_add.as_view()),
