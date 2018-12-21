@@ -124,7 +124,7 @@ a {
 																	<td width="50" height="19">
 																		<div align="center">
 																			<a
-																				href="<%=basePath%>servlet/WorkQueryServlet"
+																				href="../center/"
 																				target="mainFrame"><img
 																					src="/static/main_12.gif"
 																					width="49" height="19">
@@ -133,7 +133,7 @@ a {
 																	</td>
 																	<td width="50">
 																		<div align="center">
-																			<a href="<%=basePath%>login.jsp" target="_parent"><img
+																			<a href="../login/" target="_parent"><img
 																					src="/static/main_20.gif"
 																					width="48" height="19">
 																			</a>
@@ -148,7 +148,7 @@ a {
 																	<td width="100">
 																		<div align="center">
 																			<a
-																				href="<%=basePath%>servlet/UserUpdateServlet?id=<%=userInfo.getUserId()%>"
+																				href="../../stu1/emp_edit/?un={{ user_obj.user_name }}"
 																				target="mainFrame"><img
 																					src="/static/main_22.gif"
 																					width="98" height="19">
@@ -222,7 +222,7 @@ a {
 											</td>
 											<td width="59%" valign="bottom">
 												<div align="center" class="STYLE1">
-													当前用户：刘凯</div>
+													当前用户：{{ user_obj.user_name }}</div>
 											</td>
 											<td width="21%">
 												&nbsp;
@@ -245,7 +245,7 @@ a {
 																		onMouseOver="this.style.backgroundImage='url(/static/bg.gif)';this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#a6d0e7'; "
 																		onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'">
 																		<div align="center" class="STYLE3">
-																			<a href="<%=basePath%>servlet/WorkQueryServlet"
+																			<a href="../center/"
 																				target="mainFrame">工作台</a>
 																		</div>
 																	</td>
@@ -287,7 +287,7 @@ a {
 															onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'">
 															<div align="center" class="STYLE3">
 																<a
-																	href="<%=basePath%>servlet/CustomerQueryServlet?userId=<%=userInfo.getUserId()%>"
+																	href="../customer_list1/"
 																	target="mainFrame">客户信息</a>
 															</div>
 														</td>
@@ -306,7 +306,7 @@ a {
 															onMouseOver="this.style.backgroundImage='url(/static/bg.gif)';this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#a6d0e7'; "
 															onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'">
 															<div align="center" class="STYLE3">
-																<a href="<%=basePath%>servlet/UserQueryServlet"
+																<a href="../../stu1/emp_list/"
 																	target="mainFrame">员工信息</a>
 															</div>
 														</td>
@@ -344,7 +344,7 @@ a {
 															onMouseOver="this.style.backgroundImage='url(/static/bg.gif)';this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#a6d0e7'; "
 															onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'">
 															<div align="center" class="STYLE3">
-																<a href="<%=basePath%>servlet/EmailQueryServlet"
+																<a href="../loginemail/"
 																	target="mainFrame">发件箱</a>
 															</div>
 														</td>
@@ -363,7 +363,7 @@ a {
 															onMouseOver="this.style.backgroundImage='url(/static/bg.gif)';this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#a6d0e7'; "
 															onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'">
 															<div align="center" class="STYLE3">
-																<a href="<%=basePath%>servlet/HouseQueryServlet?userId=<%=userInfo.getUserId()%>"
+																<a href="../../stu1/house_list/"
 																	target="mainFrame">房屋信息</a>
 															</div>
 														</td>
@@ -383,8 +383,8 @@ a {
 															onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'">
 															<div align="center" class="STYLE3">
 																<a
-																	href="<%=basePath%>view/fetion/fetion_add.jsp"
-																	target="mainFrame">发送飞信</a>
+																	href="https://web2.qq.com/"
+																	target="mainFrame">发送QQ</a>
 															</div>
 														</td>
 													</tr>

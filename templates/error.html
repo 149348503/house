@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="refresh" content="3;url=../login/">
+<title>Insert title here</title>
+<script type="text/javascript">
+function info() {
+//循环执行,1秒执行一次
+window.setInterval("daojishi()", 1000);
+}
+function daojishi() {
+if(document.getElementById("msg").innerHTML!=1){
+document.getElementById("msg").innerHTML=document.getElementById("msg").innerHTML-1;
+}
+}
+</script>
+    <style>
+        #e{
+            height: 200px;
+            width: 350px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top:-100px;
+            margin-left: -200px;
+            font-size: 20px;
+            color: red;
+        }
+        img{
+            position: relative;
+            top: -25%;
+            left: 88%;
+        }
+    </style>
+</head>
+<body onload="info()">
+<div id="e">用户名或密码错误,<span id="msg">3</span>秒返回登录页面<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545373703127&di=8863f9932a6130d7839ac486122b7968&imgtype=0&src=http%3A%2F%2Fs9.rr.itc.cn%2Fr%2FwapChange%2F201612_9_20%2Fa2j0oe6508120187855.gif" height="80px"/></div>
+
+</body>
+</html>

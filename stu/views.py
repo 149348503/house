@@ -8,16 +8,14 @@ from django.views import View
 from stu.models import *
 
 
-def index_login(request):
-    return render(request,'login.html')
+
 
 
 def index_main(request):
     return render(request,'main.html')
 
 
-def index_top(request):
-    return render(request,'top.html')
+
 
 
 def index_left(request):
@@ -186,3 +184,30 @@ class Index_customer_distribute_list(View):
         CustomerInfo.objects.filter(customer_name=a['customer_name']).update(**a)
         return HttpResponse('分配成功')
 
+
+class Index_login(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'login.html')
+    def post(self, request, *args, **kwargs):
+        a = request.POST.dict()
+        print(a)
+        # 获取分配员工对象实例
+        # user_obj = UserInfo.objects.get(user_id=a['user'])
+        # a['user'] = user_obj
+        # CustomerInfo.objects.filter(customer_name=a['customer_name']).update(**a)
+        # 判断用户是否存在
+        if UserInfo.objects.filter(user_num=a['user_num'],user_pw=a['user_pw']):
+            return render(request,'main.html',{'user_num':a['user_num'],'user_pw':a['user_pw']})
+        else:
+            return render(request,'error.html')
+
+
+class Index_top(View):
+    def get(self, request, *args, **kwargs):
+        user_num = request.GET.get('user_num')
+        user_obj = UserInfo.objects.get(user_num=user_num)
+        return render(request, 'top.html',{'user_obj':user_obj})
+
+
+def index_loginemail(request):
+    return render(request,'loginemail.html')
