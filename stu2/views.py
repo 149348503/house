@@ -9,7 +9,9 @@ from stu.models import *
 
 class Index_emp_add(View):
     def get(self, request, *args, **kwargs):
-        return render(request, 'emp_add.html')
+        department_list = DepartmentInfo.objects.filter()
+        role_list = UserRole.objects.filter()
+        return render(request, 'emp_add.html',{'department_list':department_list,'role_list':role_list})
 
     def post(self, request, *args, **kwargs):
         print(request.POST.dict())

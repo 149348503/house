@@ -156,7 +156,7 @@ for(i=0;i<cs.length;i++){
 		</tr>
 		{% for ci in customer_info %}
 		     <tr>
- 			<td width="2%" height="22" background="/static/bg.gif" bgcolor="#FFFFFF"><div align="center"><input type="checkbox" name="customer_name" value="{{ ci.customer_name }}" /></div></td>
+ 			<td width="2%" height="22" background="/static/bg.gif" bgcolor="#FFFFFF"><div align="center"><input type="checkbox" name="cn_{{ ci.customer_id }}" value="{{ ci.customer_name }}" /></div></td>
             <td height="20" bgcolor="#FFFFFF"style="width: 8%"><div align="center"><span class="STYLE1">{{ ci.customer_name }}</span></div></td>
             <td height="20" bgcolor="#FFFFFF"style="width: 8%"><div align="center"><span class="STYLE1">{{ ci.condition.condition_name }}</span></div></td>
             <td height="20" bgcolor="#FFFFFF"style="width: 8%"><div align="center"><span class="STYLE1">{{ ci.source.source_name }}</span></div></td>
@@ -164,21 +164,11 @@ for(i=0;i<cs.length;i++){
 			<td height="20" bgcolor="#FFFFFF"style="width: 20%"><div align="center"><span class="STYLE1">{{ ci.customer_addtime }}</span></div></td>
 			<td height="20" bgcolor="#FFFFFF"style="width: 15%"><div align="center"><span class="STYLE1">{{ ci.customer_company }}</span></div></td>
 			<td height="20" bgcolor="#FFFFFF"style="width: 16%"><div align="center"><span class="STYLE1">{{ ci.customer_remark }}</span></div></td>
-            <td height="20" bgcolor="#FFFFFF"style="width: 15%"><div align="center"><span class="STYLE4">分配员工:&emsp;<select     name="user" style=" width: 100px">
+            <td height="20" bgcolor="#FFFFFF"style="width: 15%"><div align="center"><span class="STYLE4">分配员工:&emsp;<select     name="user{{ ci.customer_id }}" style=" width: 100px">
 
-
-			<option    value="1"selected="selected" >张三</option>
-
-			<option    value="6">蒋元征</option>
-
-			<option    value="7">黄建新</option>
-
-			<option    value="3">王五</option>
-
-			<option    value="4">孙悟空</option>
-
-			<option    value="5">猪八戒</option>
-
+            {% for user in user_list %}
+                <option  value="{{ user.user_id }}">{{ user.user_name }}</option>
+            {% endfor %}
 			</select></span></div></td>
           </tr>
 		{% endfor %}

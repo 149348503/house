@@ -6,7 +6,7 @@ from django.shortcuts import render
 from django.views import View
 
 from stu.models import *
-
+import re
 
 
 
@@ -117,7 +117,11 @@ class Index_customer_list1(View):
 
 class Index_customer_add(View):
     def get(self, request, *args, **kwargs):
-        return render(request, 'customer_add.html')
+        source_list = CustomerSource.objects.filter()
+        type_list = CustomerType.objects.filter()
+        condition_list = CustomerCondition.objects.filter()
+        user_list = UserInfo.objects.filter()
+        return render(request, 'customer_add.html',{'source_list':source_list,'type_list':type_list,'condition_list':condition_list,'user_list':user_list})
 
 
     def post(self, request, *args, **kwargs):
@@ -178,13 +182,17 @@ class Index_customer_distribute_list(View):
     def get(self, request, *args, **kwargs):
         customer_info = CustomerInfo.objects.filter()
         listlength = customer_info.count()
-        return render(request,'customer_distribute_list.html',{'customer_info':customer_info,'listlength':listlength})
+        user_list = UserInfo.objects.filter()
+        return render(request,'customer_distribute_list.html',{'customer_info':customer_info,'listlength':listlength,'user_list':user_list})
     def post(self, request, *args, **kwargs):
         a = request.POST.dict()
-        # 获取分配员工对象实例
-        user_obj = UserInfo.objects.get(user_id=a['user'])
-        a['user'] = user_obj
-        CustomerInfo.objects.filter(customer_name=a['customer_name']).update(**a)
+        for key in a:
+            split_list = re.split('_',key)
+            if len(split_list)==2:
+                user_len = 'user'+str(split_list[1])
+                user_obj = UserInfo.objects.get(user_id=a[user_len])
+                a_dict = {'customer_name':a[key],'user':user_obj}
+                CustomerInfo.objects.filter(customer_name=a[key]).update(**a_dict)
         return HttpResponse('分配成功')
 
 
